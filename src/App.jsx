@@ -3,6 +3,15 @@ import { useState } from "react";
 export default function App() {
   const [status, setStatus] = useState("idle");
 
+  const features = [
+    { title: "Workflow Automation", desc: "Turn scattered manual tasks into seamless, automated flows." },
+    { title: "AI Enrichment", desc: "Automatically classify, enrich, and clean data for accuracy." },
+    { title: "System Integration", desc: "Sync CRM, email, and business tools without data drift." },
+    { title: "Operational Efficiency", desc: "Save hours each week and improve team productivity." },
+    { title: "Data Quality", desc: "Deduplicate, validate, and maintain trustworthy records." },
+    { title: "Scalable AI", desc: "Build automations that grow with your business needs." },
+  ];
+
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
@@ -48,23 +57,21 @@ export default function App() {
           className="inline-block bg-gradient-to-r from-indigo-500 to-cyan-500 text-black font-extrabold text-xl md:text-2xl px-6 py-4 rounded-2xl shadow-lg hover:scale-105 transition">
           Visit the real ChatGPT Pro → Phillips Data Solutions
         </a>
+        <div className="mt-12 w-full overflow-hidden">
+          <div className="flex w-max gap-6 animate-scroll">
+            {[...features, ...features].map((f, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-64 rounded-xl border border-slate-800 bg-slate-900/50 p-6 shadow-md hover:shadow-lg transition"
+              >
+                <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+                <p className="text-slate-300 text-sm">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <section className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
-        {[
-          { title: "Workflow Automation", desc: "Turn scattered manual tasks into seamless, automated flows." },
-          { title: "AI Enrichment", desc: "Automatically classify, enrich, and clean data for accuracy." },
-          { title: "System Integration", desc: "Sync CRM, email, and business tools without data drift." },
-          { title: "Operational Efficiency", desc: "Save hours each week and improve team productivity." },
-          { title: "Data Quality", desc: "Deduplicate, validate, and maintain trustworthy records." },
-          { title: "Scalable AI", desc: "Build automations that grow with your business needs." },
-        ].map((f, i) => (
-          <div key={i} className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 shadow-md hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-            <p className="text-slate-300 text-sm">{f.desc}</p>
-          </div>
-        ))}
-      </section>
 
       <p className="mt-8 text-slate-400 text-sm">
         Learn more at{" "}
