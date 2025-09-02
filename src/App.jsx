@@ -33,8 +33,8 @@ export default function App() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 to-black text-white text-center px-6">
-      <section className="max-w-5xl">
+    <main className="min-h-screen flex flex-col items-center bg-gradient-to-b from-slate-900 to-black text-white text-center px-6">
+      <section className="min-h-screen flex flex-col items-center justify-center max-w-5xl">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
           AI Workflows That Save Time & Eliminate Busywork
         </h1>
@@ -65,6 +65,19 @@ export default function App() {
           </div>
         ))}
       </section>
+
+      <p className="mt-8 text-slate-400 text-sm">
+        Learn more at{" "}
+        <a
+          href="https://www.phillipsdatasolutions.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-indigo-400"
+        >
+          Phillips Data Solutions
+        </a>
+        .
+      </p>
 
       <section className="mt-24 w-full max-w-5xl px-6">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-6">
@@ -112,8 +125,20 @@ export default function App() {
         </form>
       </section>
 
-      <footer className="mt-24 text-slate-400 text-sm">
+      <footer className="mt-24 text-slate-400 text-sm text-center">
         <p>© {new Date().getFullYear()} TheChatGPTPro. All rights reserved.</p>
+        <p>
+          Visit{" "}
+          <a
+            href="https://www.phillipsdatasolutions.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Phillips Data Solutions
+          </a>{" "}
+          for more.
+        </p>
       </footer>
     </main>
   )
