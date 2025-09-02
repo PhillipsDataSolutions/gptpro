@@ -10,8 +10,6 @@ export default async function handler(req, res) {
     const {
       full_name,
       email,
-      name,
-      websiteform_current_tools,
       websiteform_message,
       hp,
     } = req.body ?? {};
@@ -30,8 +28,6 @@ export default async function handler(req, res) {
       fields: [
         { name: "email", value: email },
         { name: "Full Name", value: full_name || "" },
-        { name: "company", value: name || "" },
-        { name: "Current Tools", value: websiteform_current_tools || "" },
         { name: "What's Not Working Today", value: websiteform_message },
       ],
       context: {

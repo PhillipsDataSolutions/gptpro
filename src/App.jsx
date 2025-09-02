@@ -9,8 +9,6 @@ export default function App() {
     const data = {
       full_name: form.full_name.value,
       email: form.email.value,
-      name: form.company.value,
-      websiteform_current_tools: form.websiteform_current_tools.value,
       websiteform_message: form.websiteform_message.value,
       hp: form.hp.value,
     };
@@ -36,7 +34,7 @@ export default function App() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 to-black text-white text-center px-6">
-      <section className="max-w-3xl">
+      <section className="max-w-5xl">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
           AI Workflows That Save Time & Eliminate Busywork
         </h1>
@@ -68,106 +66,50 @@ export default function App() {
         ))}
       </section>
 
-      <section className="mt-24 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-10">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
-              Let's streamline your
-              <span className="animate-shine bg-gradient-to-r from-blue-400 via-[#c9e4ff] to-blue-400 bg-clip-text text-transparent">
-                " workflows"
-              </span>
-            </h2>
-            <p className="mt-3 text-slate-300">
-              Tell us where time is being lost. We will run a quick discovery and
-              propose a plan that saves hours each week.
+      <section className="mt-24 w-full max-w-5xl px-6">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-6">
+          Contact
+        </h2>
+        <form className="space-y-4 bg-slate-900/60 border border-white/10 rounded-2xl p-6" onSubmit={handleSubmit}>
+          <input type="text" name="hp" className="hidden" defaultValue="" />
+          <input
+            required
+            placeholder="Full name"
+            name="full_name"
+            className="bg-slate-900/70 border border-white/10 rounded-xl px-4 py-2.5 w-full"
+          />
+          <input
+            required
+            type="email"
+            placeholder="Email"
+            name="email"
+            className="bg-slate-900/70 border border-white/10 rounded-xl px-4 py-2.5 w-full"
+          />
+          <textarea
+            placeholder="Message"
+            name="websiteform_message"
+            className="bg-slate-900/70 border border-white/10 rounded-xl px-4 py-2.5 w-full min-h-[120px]"
+            maxLength={2000}
+          ></textarea>
+          <button
+            type="submit"
+            className="w-full rounded-2xl px-5 py-3 bg-white text-slate-900 font-medium shadow-sm hover:bg-white/90 disabled:opacity-50"
+            disabled={status === "loading"}
+          >
+            Send
+          </button>
+          {status === "sent" && (
+            <p className="text-green-400 text-xs text-center">
+              Thanks! We'll reply within one business day.
             </p>
-            <div className="mt-6 space-y-3 text-sm text-slate-300">
-              <div className="flex items-center gap-2">
-                Email:
-                <a
-                  href="mailto:ian@phillipsdatasolutions.com"
-                  className="underline hover:text-white"
-                >
-                  ian@phillipsdatasolutions.com
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                Phone:
-                <a
-                  className="underline hover:text-white clicktocall"
-                  id="+16092882858-0"
-                  title="Call via 8x8"
-                  tabIndex={0}
-                  rel="noopener"
-                >
-                  +1 (609) 288-2858
-                </a>
-              </div>
-              <a
-                href="https://www.linkedin.com/company/phillips-data-solutions/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-slate-300 hover:text-white"
-              >
-                LinkedIn
-              </a>
-              </div>
-          <div className="bg-slate-900/60 border border-white/10 rounded-2xl p-6">
-            <h3 className="text-xl font-semibold mb-4">Start a Free Discovery</h3>
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <input type="text" name="hp" className="hidden" defaultValue="" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <input
-                  required
-                  placeholder="Full name"
-                  name="full_name"
-                  className="bg-slate-900/70 border border-white/10 rounded-xl px-4 py-2.5"
-                />
-                <input
-                  required
-                  type="email"
-                  placeholder="Email"
-                  name="email"
-                  className="bg-slate-900/70 border border-white/10 rounded-xl px-4 py-2.5"
-                />
-              </div>
-              <input
-                placeholder="Company / Organization (optional)"
-                name="company"
-                className="bg-slate-900/70 border border-white/10 rounded-xl px-4 py-2.5 w-full"
-              />
-              <input
-                placeholder="Current tools (e.g., HubSpot, Microsoft 365, Shopify, Google)"
-                name="websiteform_current_tools"
-                className="bg-slate-900/70 border border-white/10 rounded-xl px-4 py-2.5 w-full"
-              />
-              <textarea
-                placeholder="What is not working today?"
-                name="websiteform_message"
-                className="bg-slate-900/70 border border-white/10 rounded-xl px-4 py-2.5 w-full min-h-[120px]"
-                maxLength={2000}
-              ></textarea>
-              <button
-                type="submit"
-                className="w-full rounded-2xl px-5 py-3 bg-white text-slate-900 font-medium shadow-sm hover:bg-white/90 disabled:opacity-50"
-                disabled={status === "loading"}
-              >
-                Send
-              </button>
-              {status === "sent" && (
-                <p className="text-green-400 text-xs text-center">
-                  Thanks! We'll reply within one business day.
-                </p>
-              )}
-              {status !== "idle" && status !== "loading" && status !== "sent" && (
-                <p className="text-red-400 text-xs text-center">{status}</p>
-              )}
-              {status === "loading" && (
-                <p className="text-xs text-slate-400 text-center">Sending...</p>
-              )}
-            </form>
-          </div>
-        </div>
+          )}
+          {status !== "idle" && status !== "loading" && status !== "sent" && (
+            <p className="text-red-400 text-xs text-center">{status}</p>
+          )}
+          {status === "loading" && (
+            <p className="text-xs text-slate-400 text-center">Sending...</p>
+          )}
+        </form>
       </section>
 
       <footer className="mt-24 text-slate-400 text-sm">
