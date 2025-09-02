@@ -74,7 +74,7 @@ export default function App() {
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
               Let's streamline your
               <span className="animate-shine bg-gradient-to-r from-blue-400 via-[#c9e4ff] to-blue-400 bg-clip-text text-transparent">
-                workflows
+                " workflows"
               </span>
             </h2>
             <p className="mt-3 text-slate-300">
@@ -111,12 +111,6 @@ export default function App() {
               >
                 LinkedIn
               </a>
-            </div>
-            <button className="mt-6 px-5 py-3 rounded-2xl font-medium bg-blue-500 hover:bg-blue-400 text-white shadow-lg shadow-blue-500/20 transition">
-              Live Chat with Ian
-            </button>
-          </div>
-
           <div className="bg-slate-900/60 border border-white/10 rounded-2xl p-6">
             <h3 className="text-xl font-semibold mb-4">Start a Free Discovery</h3>
             <form className="space-y-4" onSubmit={handleSubmit}>
