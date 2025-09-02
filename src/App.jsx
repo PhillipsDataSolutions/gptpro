@@ -111,6 +111,7 @@ export default function App() {
               >
                 LinkedIn
               </a>
+              </div>
           <div className="bg-slate-900/60 border border-white/10 rounded-2xl p-6">
             <h3 className="text-xl font-semibold mb-4">Start a Free Discovery</h3>
             <form className="space-y-4" onSubmit={handleSubmit}>
