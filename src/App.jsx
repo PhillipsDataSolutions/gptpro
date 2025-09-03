@@ -133,6 +133,7 @@ export default function App() {
       </section>
 
       <footer className="mt-24 text-slate-400 text-sm text-center">
+        <img src="/thechatgptpro.png" alt="TheChatGPTPro logo" className="w-6 h-6 mx-auto mb-2" />
         <p>© {new Date().getFullYear()} TheChatGPTPro. All rights reserved.</p>
         <p>
           Visit{" "}
